@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Signout = () => (
+const SignOut = () => (
   <div>
-    <h1>App</h1>
+    <h1>Signout</h1>
   </div>
 );
 
-export default Signout;
+export default SignOut;

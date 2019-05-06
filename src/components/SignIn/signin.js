@@ -1,9 +1,9 @@
-import React from './node_modules/react';
+import React from 'react';
 
-const Signin = () => (
+const SignIn = () => (
   <div>
-    <h1>App</h1>
+    <h1>Signin</h1>
   </div>
 );
 
-export default Signin;
+export default SignIn;
