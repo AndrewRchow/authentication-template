@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation';
 import Landing from './components/Landing/Landing';
@@ -11,6 +11,7 @@ import Account from './components/Account/Account';
 import Admin from './components/Admin/Admin';
 
 import * as ROUTES from './constants/Routes';
+import { withAuthentication } from './components/Session/Session';
 
 const App = () => (
   <BrowserRouter>
@@ -30,4 +31,6 @@ const App = () => (
   </BrowserRouter>
 );
 
-export default App;
+
+
+export default withAuthentication(App);
