@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import AuthUserContext from './context';
-import { withFirebase } from '../Firebase/Index';
-import * as ROUTES from '../../constants/Routes';
+import { withFirebase } from '../Firebase/index';
+import * as ROUTES from '../../constants/routes';
 
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
@@ -23,7 +23,6 @@ const withAuthorization = condition => Component => {
     }
 
     render() {
-        console.log('jkl');
       return (
         <AuthUserContext.Consumer>
         {authUser =>

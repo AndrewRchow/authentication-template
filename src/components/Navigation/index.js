@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as ROUTES from '../../constants/Routes';
-import SignOut from '../SignOut/SignOut';
+import SignOutButton from '../SignOut';
+import * as ROUTES from '../../constants/routes';
 
-import { AuthUserContext } from '../Session/Session';
+import { AuthUserContext } from '../Session';
 
 const Navigation = () => (
   <div>
@@ -28,7 +28,7 @@ const NavigationAuth = () => (
       <Link to={ROUTES.ACCOUNT}>Account</Link>
     </li>
     <li>
-      <SignOut />
+      <SignOutButton />
     </li>
   </ul>
 );

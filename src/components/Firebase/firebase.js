@@ -17,6 +17,8 @@ class Firebase {
     this.auth = app.auth();
   }
 
+  // *** Auth API ***
+
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
@@ -25,19 +27,10 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut();
 
-  doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
+  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
 }
 
 export default Firebase;
-
-// const config = {
-//   apiKey: "AIzaSyCO_RWmCtS4iiq6JmAryC1B7NRfZkymS1A",
-//   authDomain: "authentication-template-f0be0.firebaseapp.com",
-//   databaseURL: "https://authentication-template-f0be0.firebaseio.com",
-//   projectId: "authentication-template-f0be0",
-//   storageBucket: "authentication-template-f0be0.appspot.com",
-//   messagingSenderId: "249217897473"
-// };

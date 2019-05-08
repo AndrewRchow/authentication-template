@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
 
-import { withFirebase } from '../Firebase/Index';
-import * as ROUTES from '../../constants/Routes';
+import { withFirebase } from '../Firebase';
+import * as ROUTES from '../../constants/routes';
 
-const SignUp = () => (
+const SignUpPage = () => (
   <div>
-    {/* <h1>SignUp</h1> */}
+    <h1>SignUp</h1>
     <SignUpForm />
   </div>
 );
@@ -24,7 +23,7 @@ class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {...INITIAL_STATE};
+    this.state = { ...INITIAL_STATE };
   }
 
   onSubmit = event => {
@@ -41,10 +40,10 @@ class SignUpFormBase extends Component {
       });
 
     event.preventDefault();
-  }
+  };
 
   onChange = event => {
-    this.setState({ [event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -56,7 +55,7 @@ class SignUpFormBase extends Component {
       error,
     } = this.state;
 
-    const isInvalid = 
+    const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
@@ -92,7 +91,9 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+        <button disabled={isInvalid} type="submit">
+          Sign Up
+        </button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -106,11 +107,8 @@ const SignUpLink = () => (
   </p>
 );
 
-const SignUpForm = compose(
-  withRouter,
-  withFirebase
-)(SignUpFormBase);
+const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
-export default SignUp;
+export default SignUpPage;
 
 export { SignUpForm, SignUpLink };
