@@ -9,11 +9,32 @@ import { AuthUserContext } from '../Session';
 const Navigation = () => (
   <div>
     <AuthUserContext.Consumer>
-      {authUser =>
-        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+      {login =>
+        login.role ==='admin' ? <NavigationAuthAdmin /> : 
+        (login.authUser ? <NavigationAuth /> : <NavigationNonAuth />)
       }
     </AuthUserContext.Consumer>
   </div>
+);
+
+const NavigationAuthAdmin = () => (
+  <ul>
+    <li>
+      <Link to={ROUTES.LANDING}>Landing</Link>
+    </li>
+    <li>
+      <Link to={ROUTES.HOME}>Home</Link>
+    </li>
+    <li>
+      <Link to={ROUTES.ACCOUNT}>Account</Link>
+    </li>
+    <li>
+      <Link to={ROUTES.ADMIN}>Admin</Link>
+    </li>
+    <li>
+      <SignOutButton />
+    </li>
+  </ul>
 );
 
 const NavigationAuth = () => (
