@@ -5,6 +5,8 @@ import { withFirebase } from '../Firebase';
 
 import { AuthUserContext } from '../Session';
 import { withAuthorization } from '../Session';
+import * as ROUTES from '../../constants/routes';
+
 
 class AdminPageBase extends Component {
   constructor(props) {
@@ -14,6 +16,11 @@ class AdminPageBase extends Component {
       loading: false,
       users: [],
     };
+  }
+
+  componentWillMount(){
+    // this.props.history.push(ROUTES.LANDING);
+
   }
 
   componentDidMount() {
@@ -70,7 +77,7 @@ const UserList = ({users}) => (
   </ul>
 );
 
-const authCondition = authUser => !!authUser;
+const authCondition = authUsera => !!authUsera;
 
 const AdminPage = compose(
   withAuthorization(authCondition),
